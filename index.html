@@ -45,10 +45,13 @@
 <body>
     <script type="text/x-template" id="page">
         <ul class="pagination" >
+        	<!--如果是第一页，则第一页标签不显示-->
             <li v-show="current != 1" @click="current-- && goto(current)" ><a href="#">上一页</a></li>
+            <!--每页显示什么数据在pages里面已经选好;如果刚好是current当前页面,则显示当前页面-->
             <li v-for="index in pages" @click="goto(index)" :class="{'active':current == index}" :key="index">
               <a href="#" >{{index}}</a>
             </li>
+            <!--如果是最后一页则下一页标签不显示-->
             <li v-show="allpage != current && allpage != 0 " @click="current++ && goto(current++)"><a href="#" >下一页</a></li>
         </ul>
     </script>
